@@ -1,4 +1,16 @@
-<p>Helllo {{name.toUpperCase()}} !</p>
-<p>Helllo {{getName()}}</p>
+<button (click)="blueClass = !blueClass" [ngClass]="{ blue: blueClass }" [ngStyle]="{'font-size.px': fontSize}">change</button>
+
+<hr>
+<input (keyup)="changeImage($event)" [value]="imgURL">
+
+<app-post [img]="imgURL" (imgSelected)="logImg($event)">
+  <p>some caption</p>
+</app-post>
+
+<p>Helllo {{ name | titlecase }} !</p>
+<p>Helllo {{ getName() }}</p>
 <p>{{15 + 13}}</p>
-<p>{{name}}</p>
+<p>{{ currentDate | date: 'M/d/yy, h:mm a' }}</p>
+<p>{{ cost | currency: 'JPY' }}</p>
+<p>{{ temperature | number: '1.0-0' }}</p>
+<pre>{{ pizza | json}}</pre>
